@@ -25,7 +25,7 @@ Replace `categorynamegoeshere` with the category name, for example `RNG`. It's a
 
 
 # Loading/Unloading an extension (cog)
-Use the commands `load` or add to `startup_extensions` in config.py to load an extension. Unload them with the `unload` command.
+Use the command `load` or add to `startup_extensions` in config.py to load an extension. Unload them with the `unload` command.
 
 # Starting the bot
 On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
