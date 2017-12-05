@@ -3,7 +3,7 @@ A Discord bot written in Python with the discord.py module.
 
 
 # Installing dependencies
-The following packages are required to run (as well as python):
+The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
 
 `python -m pip install requests`
 
