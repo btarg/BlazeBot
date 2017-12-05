@@ -15,6 +15,8 @@ If these commands don't work, try using `python3.6` or `python3` instead of the 
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
 
+Find the string `Token goes here` in the config file and replace it with your token.
+
 
 # Creating an extension (cog)
 Inside the `misc` folder, you will find templates for commands and cogs.
