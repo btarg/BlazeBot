@@ -1,5 +1,4 @@
 #Discord.py extension (cog) template
-import random
 from discord.ext import commands
 
 class categorynamegoeshere():
