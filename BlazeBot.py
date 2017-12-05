@@ -307,15 +307,15 @@ async def christmas(ctx):
 	
 	
 	
-##@client.command(pass_context = True)
-##async def logout(ctx):
-##    """Disconnects the bot from all servers."""
-##    if ctx.message.author.server_permissions.ban_members:
-##        await client.say("**Goodbye!** :zzz:")
-##        print("Exiting bot...")
-##        await client.logout()
-##    else:
-##        await client.say(config.err_mesg_permission)
+@client.command(pass_context = True)
+async def logout(ctx):
+    """Disconnects the bot from all servers."""
+    if ctx.message.author.server_permissions.ban_members:
+        await client.say("**Goodbye!** :zzz:")
+        print("Exiting bot...")
+        await client.logout()
+    else:
+        await client.say(config.err_mesg_permission)
 
 
 
