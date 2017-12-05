@@ -31,3 +31,7 @@ Use the commands `load` or add to `startup_extensions` in config.py to load an e
 On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
 
 I reccommend on any other system that you use [Thonny](http://thonny.org) or IDLE.
+
+# Inviting to servers
+Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html) to invite the bot to your server using the ID printed to the console, and make sure that it has admin permissions.
+
