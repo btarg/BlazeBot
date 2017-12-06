@@ -36,7 +36,7 @@ On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
 
 On Linux/Unix, the bot can be started using the `BlazeBot-Linux.sh` file.
 
-I reccommend on any other system that you use [Thonny](http://thonny.org) or IDLE.
+I reccommend on any Linux system that you use [Thonny](http://thonny.org) or IDLE.
 
 # Inviting to servers
 Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html) to invite the bot to your server using the ID printed to the console, and make sure that it has admin permissions.
