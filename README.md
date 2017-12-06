@@ -29,6 +29,8 @@ Use the command `load` or add to `startup_extensions` in config.py to load an ex
 
 You can find examples of cogs [here](https://gist.github.com/leovoel/46cd89ed6a8f41fd09c5), but make sure to replace all instances of `bot` with `client`, which is what BlazeBot uses.
 
+You can also load cogs from a folder, by using the format: `folder.filename`. BlazeBot loads the `Crazi.py` plugin from the `cogs` folder.
+
 # Starting the bot
 On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
 
