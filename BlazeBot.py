@@ -63,7 +63,8 @@ async def on_ready():
 	else: 
             await client.change_presence(game=discord.Game(name="BlazeBot.py | " + config.pref + "help | Python version: " + platform.python_version() + " | Discord.py API version: " + discord.__version__ + " | Running on: " + platform.system() + " " + platform.release() + " (" + os.name + ")"))
         
-        
+
+#Commands
 
 
 @client.command(pass_context = True, aliases=['remove', 'delete'])
@@ -133,6 +134,8 @@ async def echotts(ctx, *msg):
         return await client.say(say, tts=True)
     except:
         await client.say(config.err_mesg)
+        
+        
 
     
 @client.command(pass_context = True)
@@ -245,17 +248,7 @@ async def unload(extension_name : str):
     """Unloads an extension."""
     client.unload_extension(extension_name)
     await client.say("{} unloaded.".format(extension_name))
-	    
-	
-	
-@client.command(pass_context = True)
-async def pcmasterrace(ctx): #Joke commands
-	await client.say(ctx.message.author.mention + " Joined the dark side!! SUCK IT CONSOLE PEASANTS!!")
-	
-	
-@client.command(pass_context = True)
-async def consolemasterrace(ctx): #Joke commands
-	await client.say(ctx.message.author.mention + " Is just plain stupid.")
+
 	
 	
 @client.command(pass_context = True, aliases=['cls'])
@@ -305,7 +298,8 @@ async def christmas(ctx):
     """Christmas countdown!"""
     await client.say("**" + str(diff.days) +"**" + " day(s) left until Christmas day! :christmas_tree:") #Convert the 'diff' integer into a string and say the message
 	
-	
+
+#It's reccommended that you keep the logout command disabled.
 	
 @client.command(pass_context = True)
 async def logout(ctx):
@@ -323,6 +317,7 @@ if __name__ == "__main__": #Load startup extensions, specified in config.py
     for extension in config.startup_extensions:
         try:
             client.load_extension(extension)
+            print("Loaded extension '" + extension + "'")
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))

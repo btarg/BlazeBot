@@ -1,11 +1,11 @@
 #BlazeBot configuration file (required to run)
 
 #App token
-bbtoken = "token goes here"
+bbtoken = "MzQ2MzAzMDA3ODY2MjI0NjQw.DHH3UQ.ENZTmYTFXbb0Fisd0qJY4OJewcQ"
 
 
 #This specifies what extensions to load when the bot starts up
-startup_extensions = []
+startup_extensions = ["Cogs.Crazi"]
 
 logfile = 'discord.log' #Name of the file to log to (eg. 'discord.log')
 pref = "//" #Command prefix
