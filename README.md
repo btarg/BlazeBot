@@ -34,6 +34,8 @@ You can also load cogs from a folder, by using the format: `folder.filename`. Bl
 # Starting the bot
 On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
 
+On Linux/Unix, the bot can be started using the `BlazeBot-Linux.sh` file.
+
 I reccommend on any other system that you use [Thonny](http://thonny.org) or IDLE.
 
 # Inviting to servers
