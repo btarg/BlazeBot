@@ -1,15 +1,19 @@
-#BlazeBot configuration file (required to run)
+I#BlazeBot configuration file (required to run)
 
 #App token
-bbtoken = "MzQ2MzAzMDA3ODY2MjI0NjQw.DHH3UQ.ENZTmYTFXbb0Fisd0qJY4OJewcQ"
+bbtoken = "token goes here"
 
 
 #This specifies what extensions to load when the bot starts up
-startup_extensions = ["cogs.Crazi"]
+startup_extensions = ["cogs.crazi"]
 
 logfile = 'discord.log' #Name of the file to log to (eg. 'discord.log')
 pref = "//" #Command prefix
 des = "iCrazyBlaze's Discord.py Bot" #Description shown on using the help command
+
+#Default "playing" status on bot startup
+presence = "BlazeBot.py | " + config.pref + "help | Python version: " + platform.python_version() + " | Discord.py API version: " + discord.__version__ + " | Running on: " + platform.system() + " " + platform.release() + " (" + os.name + ")"
+
 err_mesg = ":x: **An error occured!**" #Message displayed when an error occurs
 err_mesg_pi = ":x: **This command can only be run when the bot is hosted on a Raspberry Pi.**"
 err_mesg_permission = ":x: **You don't have the permission to use this command.**"

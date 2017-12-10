@@ -18,8 +18,8 @@ diff = datetime.datetime(now.year, 12, 25) - datetime.datetime.today() #Days unt
 ##################################################################################
 if not os.path.isfile("config.py"):
             sys.exit("'config.py' not found! Please add it and try again.")
-            
-else:        
+
+else:
     import config #config.py is required to run; found in the same directory.
 ##################################################################################
 
@@ -61,8 +61,8 @@ async def on_ready():
             print('Merry Christmas!')
             await client.change_presence(game=discord.Game(name="Merry Christmas! <3"))
 	else: 
-            await client.change_presence(game=discord.Game(name="BlazeBot.py | " + config.pref + "help | Python version: " + platform.python_version() + " | Discord.py API version: " + discord.__version__ + " | Running on: " + platform.system() + " " + platform.release() + " (" + os.name + ")"))
-        
+            await client.change_presence(game=discord.Game(name=config.presence))
+
 
 #Commands
 
@@ -84,7 +84,7 @@ async def purge(ctx, number):
     except:
 	    await client.say(config.err_mesg)
 
-	
+
 @client.command(pass_context = True)
 async def roles(context):
     """Lists the current roles on the server."""
@@ -95,8 +95,8 @@ async def roles(context):
         result += role.name +  ", "
     await client.say(result)
 
-	
-	
+
+
 @client.command(pass_context = True)
 async def hug(ctx, *, member : discord.Member = None):
     """Hug someone on the server <3"""
@@ -108,10 +108,10 @@ async def hug(ctx, *, member : discord.Member = None):
                         await client.say(ctx.message.author.mention + " has hugged themself!")
                     else:
                         await client.say(member.mention + " has been hugged by " + ctx.message.author.mention + "!")
-		
+
     except:
     	await client.say(config.err_mesg)
-	
+
 
 
 @client.command(pass_context = True, aliases=['say'])
@@ -123,8 +123,8 @@ async def echo(ctx, *msg):
         return await client.say(say)
     except:
         await client.say(config.err_mesg)
-    
-	
+
+
 @client.command(pass_context = True, aliases=['saytts'])
 async def echotts(ctx, *msg):
     """Makes the bot talk, with TTS."""
@@ -134,10 +134,10 @@ async def echotts(ctx, *msg):
         return await client.say(say, tts=True)
     except:
         await client.say(config.err_mesg)
-        
-        
 
-    
+
+
+
 @client.command(pass_context = True)
 async def servers(ctx):
     """Shows how many servers the bot is active on."""
@@ -145,7 +145,7 @@ async def servers(ctx):
         await client.say("Currently active on " + str(len(client.servers)) + " servers.")
     except:
         await client.say(config.err_mesg)
-        
+
 
 @client.command(pass_context = True)
 async def serverlist(ctx):
@@ -159,10 +159,10 @@ async def serverlist(ctx):
     elif y < 40:
         embed = discord.Embed(title = "Currently active on " + str(y) + " servers:", description = "```json\n" + x + "```", color = 0xFFFFF)
         return await client.say(embed = embed)
-    
-    
-    
-			
+
+
+
+
 @client.command(pass_context = True)
 async def getbans(ctx):
     """Lists all banned users on the current server."""
@@ -170,9 +170,9 @@ async def getbans(ctx):
     x = '\n'.join([y.name for y in x])
     embed = discord.Embed(title = "List of Banned Members", description = x, colour = 0xFFFFF)
     return await client.say(embed = embed)
-    
-	
-	
+
+
+
 @client.command(pass_context=True, aliases=['user'])
 async def info(ctx, user: discord.Member):
     """Gets info on a member, such as their ID."""
@@ -182,12 +182,12 @@ async def info(ctx, user: discord.Member):
 	    await client.say("`The user's status is: {}`".format(user.status))
 	    await client.say("`The user's highest role is: {}`".format(user.top_role))
 	    await client.say("`The user joined at: {}`".format(user.joined_at))
-		
+
     except:
 	    await client.say(config.err_mesg)
-		
-		
-		
+
+
+
 @client.command(pass_context = True)
 async def ping(ctx):
     """Pings the bot and gets a response time."""
@@ -207,7 +207,7 @@ async def ping(ctx):
 async def insult(ctx):
     """Says something mean about you."""
     await client.say(ctx.message.author.mention + " " + random.choice(config.answers)) #Mention the user and say the insult
-	
+
 
 
 @client.command(aliases=['ud'])
@@ -224,14 +224,14 @@ async def urban(*msg):
 	    embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
 	    embed.add_field(name = "Examples:", value = response['list'][0]["example"])
 	    embed.set_footer(text = "Tags: " + ', '.join(response['tags']))
-	
+
 	    await client.say(embed = embed)
-		
+
     except:
 	    await client.say(config.err_mesg)
-	    
-	    
-	    
+
+
+
 @client.command(pass_context = True)
 async def load(extension_name : str):
     """Loads an extension."""
@@ -241,16 +241,16 @@ async def load(extension_name : str):
         await client.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
     await client.say("{} loaded.".format(extension_name))
-    
-    
+
+
 @client.command()
 async def unload(extension_name : str):
     """Unloads an extension."""
     client.unload_extension(extension_name)
     await client.say("{} unloaded.".format(extension_name))
 
-	
-	
+
+
 @client.command(pass_context = True, aliases=['cls'])
 async def clear(ctx): #Clear the console from Discord (doesn't work with Thonny)
         if ctx.message.author.server_permissions.ban_members:
@@ -260,56 +260,26 @@ async def clear(ctx): #Clear the console from Discord (doesn't work with Thonny)
             print("")
         else:
             await client.say(err_mesg_permission)
-	
-##################################################################################	
-	
-#These commands only work on the Raspberry Pi.
-##@client.command(pass_context = True)
-##async def usbon(ctx): #All USBs on
-##    try:
-##        if not os.name == 'nt':
-##            os.system("echo '1-1' | sudo tee /sys/bus/usb/drivers/usb/bind")
-##            await client.say(":ballot_box_with_check: **USB input turned on.**")
-##            print("USB input turned on.")
-##        else:
-##            await client.say(config.err_mesg_pi)
-##    except:
-##        await client.say(config.err_mesg)
-##    
-##
-##@client.command(pass_context = True)
-##async def usboff(ctx): #All USBs off
-##    try:
-##        if not os.name == 'nt':
-##            os.system("echo '1-1' | sudo tee /sys/bus/usb/drivers/usb/unbind")
-##            await client.say(":ballot_box_with_check: **USB input turned off.**")
-##            print("USB input turned off.")
-##        else:
-##            await client.say(config.err_mesg_pi)
-##    except:
-##        await client.say(config.err_mesg)
-        
-        
-####################################################################################
-	
-	
+
+
+
 @client.command(pass_context = True, aliases=['xmas', 'chrimbo']) #Christmas countdown!
 async def christmas(ctx):
     """Christmas countdown!"""
     await client.say("**" + str(diff.days) +"**" + " day(s) left until Christmas day! :christmas_tree:") #Convert the 'diff' integer into a string and say the message
-	
+
 
 #It's reccommended that you keep the logout command disabled.
-	
-@client.command(pass_context = True)
-async def logout(ctx):
-    """Disconnects the bot from all servers."""
-    if ctx.message.author.server_permissions.ban_members:
-        await client.say("**Goodbye!** :zzz:")
-        print("Exiting bot...")
-        await client.logout()
-    else:
-        await client.say(config.err_mesg_permission)
+
+##@client.command(pass_context = True)
+##async def logout(ctx):
+##    """Disconnects the bot from all servers."""
+##    if ctx.message.author.server_permissions.ban_members:
+##        await client.say("**Goodbye!** :zzz:")
+##        print("Exiting bot...")
+##        await client.logout()
+##    else:
+##        await client.say(config.err_mesg_permission)
 
 
 
@@ -321,7 +291,7 @@ if __name__ == "__main__": #Load startup extensions, specified in config.py
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
-            
-	
+
+
 #Read client token from "config.py" (which should be in the same directory as this file)
 client.run(config.bbtoken)
