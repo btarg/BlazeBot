@@ -7,8 +7,6 @@ class usb():
         self.client = client
 
 
-    ################################################################################	
-            
     #These commands only work on the Raspberry Pi.
     @commands.command(pass_context = True)
     async def usbon(self, ctx): #All USBs on
@@ -21,7 +19,7 @@ class usb():
                 await self.client.say(config.err_mesg_pi)
         except:
             await self.client.say(config.err_mesg)
-        
+
 
     @commands.command(pass_context = True)
     async def usboff(self, ctx): #All USBs off
@@ -34,9 +32,8 @@ class usb():
                 await self.client.say(config.err_mesg_pi)
         except:
             await self.client.say(config.err_mesg)
-            
-            
-    ##################################################################################
-            
+
+
+
 def setup(client):
     client.add_cog(usb(client))

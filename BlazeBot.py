@@ -60,11 +60,11 @@ async def on_ready():
 	if diff.days < 2:
             print('Merry Christmas!')
             await client.change_presence(game=discord.Game(name="Merry Christmas! <3"))
-	else: 
+	else:
             await client.change_presence(game=discord.Game(name=config.presence))
 
 
-#Commands
+#Default BlazeBot commands
 
 
 @client.command(pass_context = True, aliases=['remove', 'delete'])

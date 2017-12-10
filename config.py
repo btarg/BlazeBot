@@ -1,7 +1,7 @@
 I#BlazeBot configuration file (required to run)
 
 #App token
-bbtoken = "token here"
+bbtoken = "token goes here"
 
 
 #This specifies what extensions to load when the bot starts up

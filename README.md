@@ -21,7 +21,7 @@ Find the string `Token goes here` in the config file and replace it with your to
 # Creating an extension (cog)
 Inside the `misc` folder, you will find templates for commands and cogs.
 
-Replace `categorynamegoeshere` with the category name, for example `RNG`. It's also good practice to make the extension's filename the same as this.
+Replace `test` with the category name, for example `Crazi`. It's also good practice to make the extension's filename the same as this, to avoid confusion.
 
 
 # Loading/Unloading an extension (cog)
