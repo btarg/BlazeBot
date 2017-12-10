@@ -13,6 +13,8 @@ The following packages are required to run (as well as [Python](https://python.o
 
 If these commands don't work, try using `python3.6` or `python3` instead of the regular command, or use `sudo` on Linux.
 
+You can also use the scripts found in the `misc` folder that will do this for you. Remember to run the `Python35` version if you're using Python 3.5!
+
 
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
