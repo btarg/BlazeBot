@@ -1,6 +1,8 @@
 # BlazeBot
 A Discord bot written in Python with the discord.py module.
 
+[![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
+[![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)]()
 
 # Installing dependencies
 The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
@@ -40,4 +42,3 @@ I reccommend on any Linux system that you use [Thonny](http://thonny.org) or IDL
 
 # Inviting to servers
 Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html) to invite the bot to your server using the ID printed to the console, and make sure that it has admin permissions.
-
