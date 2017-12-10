@@ -66,7 +66,6 @@ async def on_ready():
 
 #Default BlazeBot commands
 
-
 @client.command(pass_context = True, aliases=['remove', 'delete'])
 async def purge(ctx, number):
     """Bulk-deletes messages from the channel."""
