@@ -61,7 +61,7 @@ async def on_ready():
             print('Merry Christmas!')
             await client.change_presence(game=discord.Game(name="Merry Christmas! <3"))
 	else:
-            await client.change_presence(game=discord.Game(name=config.presence))
+            await client.change_presence(game=discord.Game(name="BlazeBot.py | " + config.pref + "help | Python version: " + platform.python_version() + " | Discord.py API version: " + discord.__version__ + " | Running on: " + platform.system() + " " + platform.release() + " (" + os.name + ")"))
 
 
 #Default BlazeBot commands
