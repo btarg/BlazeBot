@@ -2,7 +2,7 @@
 A Discord bot written in Python with the discord.py module.
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
-[![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)]()
+[![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
 
 # Installing dependencies
 The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
