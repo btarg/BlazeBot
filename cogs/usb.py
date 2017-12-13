@@ -6,7 +6,7 @@ class usb():
     def __init__(self, client):
         self.client = client
 
-
+    #WARNING - use these commands at your own risk!
     #These commands only work on the Raspberry Pi.
     @commands.command(pass_context = True)
     async def usbon(self, ctx): #All USBs on
@@ -32,7 +32,6 @@ class usb():
                 await self.client.say(config.err_mesg_pi)
         except:
             await self.client.say(config.err_mesg)
-
 
 
 def setup(client):

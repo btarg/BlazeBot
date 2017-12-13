@@ -1,11 +1,11 @@
 #BlazeBot configuration file (required to run)
 
 #App token
-bbtoken = "token goes here"
+bbtoken = "token here" #REMOVE TOKEN BEFORE SYNC!! -Blaze
 
 
 #This specifies what extensions to load when the bot starts up
-startup_extensions = ["cogs.crazi"]
+startup_extensions = ["cogs.crazi", "cogs.emoji"]
 
 logfile = 'discord.log' #Name of the file to log to (eg. 'discord.log')
 pref = "//" #Command prefix

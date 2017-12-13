@@ -186,7 +186,6 @@ async def info(ctx, user: discord.Member):
 	    await client.say(config.err_mesg)
 
 
-
 @client.command(pass_context = True)
 async def ping(ctx):
     """Pings the bot and gets a response time."""
@@ -201,12 +200,10 @@ async def ping(ctx):
             await client.say(config.err_mesg)
 
 
-
 @client.command(pass_context = True) #Choose a random insult from the list in config.py
 async def insult(ctx):
     """Says something mean about you."""
     await client.say(ctx.message.author.mention + " " + random.choice(config.answers)) #Mention the user and say the insult
-
 
 
 @client.command(aliases=['ud'])
@@ -230,7 +227,6 @@ async def urban(*msg):
 	    await client.say(config.err_mesg)
 
 
-
 @client.command(pass_context = True)
 async def load(extension_name : str):
     """Loads an extension."""
@@ -249,7 +245,6 @@ async def unload(extension_name : str):
     await client.say("{} unloaded.".format(extension_name))
 
 
-
 @client.command(pass_context = True, aliases=['cls'])
 async def clear(ctx): #Clear the console from Discord (doesn't work with Thonny)
         if ctx.message.author.server_permissions.ban_members:
@@ -259,7 +254,6 @@ async def clear(ctx): #Clear the console from Discord (doesn't work with Thonny)
             print("")
         else:
             await client.say(err_mesg_permission)
-
 
 
 @client.command(pass_context = True, aliases=['xmas', 'chrimbo']) #Christmas countdown!
@@ -279,7 +273,6 @@ async def christmas(ctx):
 ##        await client.logout()
 ##    else:
 ##        await client.say(config.err_mesg_permission)
-
 
 
 if __name__ == "__main__": #Load startup extensions, specified in config.py

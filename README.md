@@ -1,5 +1,5 @@
 # BlazeBot
-A Discord bot written in Python with the discord.py module.
+A multipurpose Discord bot written in Python with the discord.py module. (Version 1.2)
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
@@ -38,9 +38,14 @@ You can also load cogs from a folder, by using the format: `folder.filename`. Bl
 # Starting the bot
 On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
 
-On Linux/Unix, the bot can be started using the `BlazeBot-Linux.sh` file. (This only works with Python 3.6.X)
+On Linux/Unix, the bot can be started using the `BlazeBot-Linux.sh` file. (This only works with Python 3.6.X - if you're using Python 3.5 then make sure you use the `BlazeBot-Python35.sh` Launcher instead.)
 
 I reccommend on any Linux system that you use [Thonny](http://thonny.org) or IDLE.
 
 # Inviting to servers
 Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html) to invite the bot to your server using the ID printed to the console, and make sure that it has admin permissions.
+
+# Tips
+Make sure to always update BlazeBot. You can create [GitHub Webhooks for Discord](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to get notified whenever a repo is updated.
+
+When you do this, always keep a backup! It's also useful to write down your token, but NEVER give this to anyone you don't trust. Don't worry though - you can change a token whenever you want on the Apps page.
