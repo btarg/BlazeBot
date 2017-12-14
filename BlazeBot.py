@@ -143,6 +143,8 @@ async def setgame(ctx, *args):
                 setgame = ' '.join(args)
                 await client.change_presence(game=discord.Game(name=setgame))
                 await client.say(":ballot_box_with_check: Game set to: `" + setgame + "`")
+                print("Game was set to '" + setgame + "'")
+                logger.info("Game was set to '" + setgame + "'")
         else:
                 await client.say(config.err_mesg_permission)
     except:
