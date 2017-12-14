@@ -137,7 +137,7 @@ async def echotts(ctx, *msg):
 
 @client.command(pass_context = True, aliases=['game', 'presence'])
 async def setgame(ctx, *args):
-    """Sets the bot's 'Playing' status."""
+    """Sets the 'Playing' status."""
     try:
         if ctx.message.author.server_permissions.ban_members:
                 setgame = ' '.join(args)
