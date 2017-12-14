@@ -19,7 +19,7 @@ You can also use the scripts found in the `misc` folder that will do this for yo
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
 
-Find the string `Token goes here` in the config file and replace it with your token.
+Find the string `Token here` in the config file and replace it with your token.
 
 
 # Creating an extension (cog)
@@ -45,7 +45,11 @@ I reccommend on any Linux system that you use [Thonny](http://thonny.org) or IDL
 # Inviting to servers
 Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html) to invite the bot to your server using the ID printed to the console, and make sure that it has admin permissions.
 
+If you want to invite your bot to other people's servers, make sure to tick "Public bot" on the Apps page.
+
 # Tips
 Make sure to always update BlazeBot. You can create [GitHub Webhooks for Discord](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to get notified whenever a repo is updated.
 
 When you do this, always keep a backup! It's also useful to write down your token, but NEVER give this to anyone you don't trust. Don't worry though - you can change a token whenever you want on the Apps page.
+
+To read this properly offline, [Atom](https://atom.io) has a built-in Markdown Previewer that you can open by hitting **CTRL+SHIFT+M** on a PC or **CMD+SHIFT+M** on a Mac.
