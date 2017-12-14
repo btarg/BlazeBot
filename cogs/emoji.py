@@ -9,7 +9,7 @@ class Emoji():
     #Get emotes from all servers
     @commands.command(pass_context = True, aliases=["Emotes", "emojis"])
     async def emotes(self, ctx):
-        """Display all emotes avaiable on a Server."""
+        """Displays all emotes avaiable on a Server."""
         embed=discord.Embed(title="Emojis", description="Here are all the emojis available on the servers with BlazeBot:", color=0x00ff00) #setup embed
         for ej in self.client.get_all_emojis():
             output = ej.name, ej.id, ej.managed, ej.server.name

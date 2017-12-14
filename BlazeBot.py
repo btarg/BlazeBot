@@ -135,6 +135,18 @@ async def echotts(ctx, *msg):
         await client.say(config.err_mesg)
 
 
+@client.command(pass_context = True, aliases=['game', 'presence'])
+async def setgame(ctx, *args):
+    """Sets the bot's 'Playing' status."""
+    try:
+        if ctx.message.author.server_permissions.ban_members:
+                setgame = ' '.join(args)
+                await client.change_presence(game=discord.Game(name=setgame))
+                await client.say(":ballot_box_with_check: Game set to: `" + setgame + "`")
+        else:
+                await client.say(config.err_mesg_permission)
+    except:
+	    await client.say(config.err_mesg)
 
 
 @client.command(pass_context = True)
