@@ -246,7 +246,7 @@ async def load():
         for extension in config.startup_extensions:
             try:
                 client.load_extension(extension)
-                print("Loaded extension: '" + extension + "'")
+                await client.say("Loaded extension: '" + extension + "'")
             except Exception as e:
                 exc = '{}: {}'.format(type(e).__name__, e)
                 print('Failed to load extension {}\n{}'.format(extension, exc))
