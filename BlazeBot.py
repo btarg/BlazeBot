@@ -239,15 +239,17 @@ async def urban(*msg):
 	    await client.say(config.err_mesg)
 
 
-@client.command(pass_context = True)
-async def load(extension_name : str):
-    """Loads an extension."""
-    try:
-        await client.load_extension(extension_name)
-    except (AttributeError, ImportError) as e:
-        await client.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
-        return
-    await client.say("{} loaded.".format(extension_name))
+@client.command(pass_context=True)
+async def load():
+    """Loads startup extensions."""
+    if __name__ == "__main__":  # Load startup extensions, specified in config.py
+        for extension in config.startup_extensions:
+            try:
+                client.load_extension(extension)
+                print("Loaded extension: '" + extension + "'")
+            except Exception as e:
+                exc = '{}: {}'.format(type(e).__name__, e)
+                print('Failed to load extension {}\n{}'.format(extension, exc))
 
 
 @client.command()
