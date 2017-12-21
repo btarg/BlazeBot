@@ -143,8 +143,6 @@ async def setgame(ctx, *args):
                 setgame = ' '.join(args)
                 await client.change_presence(game=discord.Game(name=setgame))
                 await client.say(":ballot_box_with_check: Game set to: `" + setgame + "`")
-                print("Game was set to '" + setgame + "'")
-                logger.info("Game was set to '" + setgame + "'")
         else:
                 await client.say(config.err_mesg_permission)
     except:
@@ -245,7 +243,7 @@ async def urban(*msg):
 async def load(extension_name : str):
     """Loads an extension."""
     try:
-        client.load_extension(extension_name)
+        await client.load_extension(extension_name)
     except (AttributeError, ImportError) as e:
         await client.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
