@@ -1,5 +1,5 @@
 # BlazeBot
-A multipurpose Discord bot written in Python with the discord.py module. (Version 1.2)
+A multipurpose Discord bot written in Python with the discord.py module. (Version 1.3)
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
@@ -15,6 +15,10 @@ If these commands don't work, try using `python3.6` or `python3` instead of the 
 
 You can also use the scripts found in the `misc` folder that will do this for you. Remember to run the `Python35` version if you're using Python 3.5!
 
+# Downloading the source code
+To download with git, use `git clone https://github.com/iCrazyBlaze/BlazeBot`, or use the [GitHub Desktop Client](https://desktop.github.com/) to download it.
+
+You can also download the repository as a ZIP file, but I don't recommend doing this.
 
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
@@ -25,7 +29,7 @@ Find the string `Token here` in the config file and replace it with your token.
 # Creating an extension (cog)
 Inside the `misc` folder, you will find templates for commands and cogs.
 
-Replace `test` with the category name, for example `Crazi`. It's also good practice to make the extension's filename the same as this, to avoid confusion.
+Replace `test` with the category name, for example `Crazi`. Also, make sure the extension's filename the same as this, to avoid confusion.
 
 
 # Loading/Unloading an extension (cog)
