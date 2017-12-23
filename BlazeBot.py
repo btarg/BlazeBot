@@ -1,18 +1,21 @@
-import platform
-import os
-import time
-import random
-import requests
-#import traceback
 import asyncio
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
-import logging
+#import traceback
+import platform
 import sys
+import os
+import random
+import requests
+import time
 import datetime
 now = datetime.datetime.now()
 diff = datetime.datetime(now.year, 12, 25) - datetime.datetime.today() #Days until Christmas
+
+import logging
+from pyfiglet import figlet_format, FontNotFound
+
 
 #Config.py setup
 ##################################################################################
@@ -33,7 +36,7 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 
-#IMPORTANT - DO NOT TOUCH! Setup bot
+#IMPORTANT - DO NOT TOUCH! Setup bot as "client"
 client = Bot(description=config.des, command_prefix=config.pref)
 
 
@@ -133,6 +136,44 @@ async def echotts(ctx, *msg):
         return await client.say(say, tts=True)
     except:
         await client.say(config.err_mesg)
+
+
+@client.command(aliases=["fancy"])
+async def fancify(*, text):
+    """Makes text fancy!"""
+    try:
+
+        def strip_non_ascii(string):
+            """Returns the string without non ASCII characters."""
+            stripped = (c for c in string if 0 < ord(c) < 127)
+            return ''.join(stripped)
+
+        text = strip_non_ascii(text)
+        if len(text.strip()) < 1:
+            return await self.client.say("ASCII characters only please!")
+        output = ""
+        for letter in text:
+            if 65 <= ord(letter) <= 90:
+                output += chr(ord(letter) + 119951)
+            elif 97 <= ord(letter) <= 122:
+                output += chr(ord(letter) + 119919)
+            elif letter == " ":
+                output += " "
+        await client.say(output)
+
+    except:
+        await client.say(config.err_mesg)
+
+
+
+@client.command()
+async def bigtext(*, text):
+    """Enlarges text."""
+    try:
+        await client.say("```fix\n" + figlet_format(text, font="big") + "```")
+    except:
+        await client.say(config.err_mesg)
+
 
 
 @client.command(pass_context = True, aliases=['game', 'presence'])
@@ -276,7 +317,7 @@ async def christmas(ctx):
     await client.say("**" + str(diff.days) +"**" + " day(s) left until Christmas day! :christmas_tree:") #Convert the 'diff' integer into a string and say the message
 
 
-#It's reccommended that you keep the logout command disabled.
+#It's reccommended that you keep the logout command disabled, especially running on multiple servers.
 
 ##@client.command(pass_context = True)
 ##async def logout(ctx):
