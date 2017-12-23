@@ -5,7 +5,7 @@ bbtoken = "token here" #REMOVE TOKEN BEFORE SYNC!! -Blaze
 
 
 #This specifies what extensions to load when the bot starts up
-startup_extensions = ["cogs.crazi", "cogs.emoji"]
+startup_extensions = ["cogs.crazi", "cogs.emoji", "cogs.ascii"]
 
 logfile = 'discord.log' #Name of the file to log to (eg. 'discord.log')
 pref = "//" #Command prefix
