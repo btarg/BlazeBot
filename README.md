@@ -18,7 +18,9 @@ You can also use the scripts found in the `misc` folder that will do this for yo
 # Downloading the source code
 To download with git, use `git clone https://github.com/iCrazyBlaze/BlazeBot`, or use the [GitHub Desktop Client](https://desktop.github.com/) to download it.
 
-You can also download the repository as a ZIP file, but I don't recommend doing this.
+You can also download the repository as a ZIP or TAR file, but I don't recommend doing this.
+
+If you're on Linux and you want to be able to easily clone and update BlazeBot, you can use [this script](https://gist.github.com/iCrazyBlaze/c2e4413ba4700083355833100d262d10) which will remove the `BlazeBot` directory if it exists (otherwise it will just say "directory not found") before using the `git clone` command to download the code. This has proved really useful for me when I'm using multiple machines.
 
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
