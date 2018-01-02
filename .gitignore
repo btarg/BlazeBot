@@ -50,3 +50,6 @@ Temporary Items
 *.py[cod]
 *$py.class
 *.log
+
+# Jekyll config file
+_config.yml
