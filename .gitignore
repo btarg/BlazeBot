@@ -47,5 +47,6 @@ Temporary Items
 .apdisk
 
 # BlazeBot files
-*.pyc
+*.py[cod]
+*$py.class
 *.log
