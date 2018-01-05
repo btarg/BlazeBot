@@ -1,6 +1,5 @@
 #Josh's commands
 #ya like jazzzz?????
-
 import discord
 from discord.ext import commands
 
@@ -12,7 +11,6 @@ class bee():
     async def beemovie(self):
         """teh best movieh"""
         await self.client.say("https://icrazyblaze.github.io/Download-archive/dl/beemovie.txt")
-
 
 
 def setup(client):

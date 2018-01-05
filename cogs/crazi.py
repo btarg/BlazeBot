@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 
 class The_Crazi_Rally():
+    """The Crazi Rally"""
     def __init__(self, client):
         self.client = client
 
