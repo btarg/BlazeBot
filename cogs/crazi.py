@@ -19,7 +19,7 @@ class The_Crazi_Rally():
             await self.client.say(ctx.message.author.mention + " Is just plain stupid.")
 
     @commands.command(pass_context = True, aliases=['harvey'])
-    async def harvster(seld, ctx): #Harvey's command
+    async def harvster(self, ctx): #Harvey's command
             """Harvey's command"""
             await self.client.say("**Harvey is my hero!**")
 
