@@ -18,8 +18,8 @@ class The_Crazi_Rally():
             """PCs are better than consoles!"""
             await self.client.say(ctx.message.author.mention + " Is just plain stupid.")
 
-    @commands.command(pass_context = True)
-    async def harvster(ctx): #Harvey's command
+    @commands.command(pass_context = True, aliases=['harvey'])
+    async def harvster(seld, ctx): #Harvey's command
             """Harvey's command"""
             await self.client.say("**Harvey is my hero!**")
 
