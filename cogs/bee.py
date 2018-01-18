@@ -1,5 +1,6 @@
-#Josh's commands
-#ya like jazzzz?????
+# Josh's commands
+# ya like jazzzz?????
+
 import discord
 from discord.ext import commands
 

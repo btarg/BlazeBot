@@ -39,7 +39,7 @@ handler.setFormatter(logging.Formatter(
 logger.addHandler(handler)
 
 
-# IMPORTANT - DO NOT TOUCH! Setup bot as "client"
+# IMPORTANT - DO NOT TOUCH! Setup bot as "client", with description and prefix from config.py
 client = Bot(description=config.des, command_prefix=config.pref)
 
 
@@ -79,7 +79,7 @@ async def on_ready():
 async def purge(ctx, number):
     """Bulk-deletes messages from the channel."""
     try:
-        if ctx.message.author.server_permissions.ban_members:
+        if ctx.message.author.server_permissions.administrator:
             mgs = []  # Empty list to put all the messages in the log
             # Converting the amount of messages to delete to an integer
             number = int(number)
@@ -155,7 +155,7 @@ async def fancify(*, text):
 
         text = strip_non_ascii(text)
         if len(text.strip()) < 1:
-            return await self.client.say("ASCII characters only please!")
+            return await self.client.say(":x: ASCII characters only please!")
         output = ""
         for letter in text:
             if 65 <= ord(letter) <= 90:
@@ -183,7 +183,7 @@ async def bigtext(*, text):
 async def setgame(ctx, *args):
     """Sets the 'Playing' status."""
     try:
-        if ctx.message.author.server_permissions.ban_members:
+        if ctx.message.author.server_permissions.administrator:
             setgame = ' '.join(args)
             await client.change_presence(game=discord.Game(name=setgame))
             await client.say(":ballot_box_with_check: Game set to: `" + setgame + "`")
@@ -311,11 +311,11 @@ async def unload(extension_name: str):
 @client.command(pass_context=True, aliases=['cls'])
 async def clear(ctx):
     """Clear the console from Discord"""
-    if ctx.message.author.server_permissions.ban_members:
+    if ctx.message.author.server_permissions.administrator:
         await client.say(":ballot_box_with_check: **Console cleared!**")
         # checks if the script running on Windows or Unix
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("Console cleared!")
+        print("== Console cleared! ==")
         print("")
     else:
         await client.say(err_mesg_permission)
@@ -339,7 +339,7 @@ async def github(ctx):
 # @client.command(pass_context = True)
 # async def logout(ctx):
 ##    """Disconnects the bot from all servers."""
-# if ctx.message.author.server_permissions.ban_members:
+# if ctx.message.author.server_permissions.administrator:
 # await client.say("**Goodbye!** :zzz:")
 ##        print("Exiting bot...")
 # await client.logout()

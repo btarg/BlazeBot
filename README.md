@@ -22,6 +22,8 @@ You can also download the repository as a ZIP or TAR file, but I don't recommend
 
 If you're on Linux and you want to be able to easily clone and update BlazeBot, you can use [this script](https://gist.github.com/iCrazyBlaze/c2e4413ba4700083355833100d262d10) which will remove the `BlazeBot` directory if it exists (otherwise it will just say "directory not found") before using the `git clone` command to download the code. This has proved really useful for me when I'm using multiple machines.
 
+To run the script on Windows with [Git Bash](https://git-scm.com/downloads), delete where it says `sudo` and it should run.
+
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
 
@@ -33,11 +35,11 @@ Inside the `misc` folder, you will find templates for commands and cogs.
 
 Replace `test` with the category name, for example `Crazi`. Also, make sure the extension's filename the same as this, to avoid confusion.
 
+You can refer to [this documentation](https://twentysix26.github.io/Red-Docs/red_guide_make_cog/) for how to create a cog, and you can find examples of existing cogs [here](https://gist.github.com/leovoel/46cd89ed6a8f41fd09c5), but make sure to replace all instances of `bot` with `client`, which is what BlazeBot uses.
+
 
 # Loading/Unloading an extension (cog)
-Use the command `load` or add to `startup_extensions` in config.py to load an extension. Unload them with the `unload` command.
-
-You can find examples of cogs [here](https://gist.github.com/leovoel/46cd89ed6a8f41fd09c5), but make sure to replace all instances of `bot` with `client`, which is what BlazeBot uses.
+Use the command `load` or add to `startup_extensions` in config.py to load extensions. Unload them separately with the `unload` command.
 
 You can also load cogs from a folder, by using the format: `folder.filename`. BlazeBot loads the `Crazi.py` plugin from the `cogs` folder.
 
@@ -46,7 +48,7 @@ On Windows, the bot can be started using the `BlazeBot-Windows.bat` file.
 
 On Linux/Unix, the bot can be started using the `BlazeBot-Linux.sh` file. (This only works with Python 3.6.X - if you're using Python 3.5 then make sure you use the `BlazeBot-Python35.sh` Launcher instead.)
 
-I reccommend on any Linux system that you use [Thonny](http://thonny.org) or IDLE.
+I recommend on any Linux system that you use [Thonny](http://thonny.org) or IDLE.
 
 # Inviting to servers
 Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html) to invite the bot to your server using the ID printed to the console, and make sure that it has admin permissions.
