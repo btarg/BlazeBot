@@ -22,12 +22,14 @@ You can also download the repository as a ZIP or TAR file, but I don't recommend
 
 If you're on Linux and you want to be able to easily clone and update BlazeBot, you can use [this script](https://gist.github.com/iCrazyBlaze/c2e4413ba4700083355833100d262d10) which will remove the `BlazeBot` directory if it exists (otherwise it will just say "directory not found") before using the `git clone` command to download the code. This has proved really useful for me when I'm using multiple machines.
 
-To run the script on Windows with [Git Bash](https://git-scm.com/downloads), delete where it says `sudo` and it should run.
+To run the script on Windows with [Git Bash](https://git-scm.com/downloads), delete `sudo` from the first line and it should run.
 
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
 
 Find the string `Token here` in the config file and replace it with your token.
+
+In the config file, you can also customise insults, error messages, bot prefix, bot description and the file to log to.
 
 
 # Creating an extension (cog)

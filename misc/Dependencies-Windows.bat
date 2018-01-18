@@ -1,5 +1,7 @@
-'Install dependencies - Windows only, Works with all Python versions
 @echo off
+
+REM Install dependencies - Windows only, Works with all Python versions
+
 title Installing...
 python -m pip install discord
 python -m pip install requests
