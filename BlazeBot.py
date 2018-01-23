@@ -8,6 +8,8 @@ import sys
 import os
 import random
 import requests
+import urllib.request
+import json
 import time
 import datetime
 now = datetime.datetime.now()
@@ -32,10 +34,8 @@ else:
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(
-    filename=config.logfile, encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter(
-    '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler = logging.FileHandler(filename=config.logfile, encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
 
@@ -65,6 +65,7 @@ async def on_ready():
     print("Currently active on " + str(len(client.servers)) + " servers.")
     print("")
     logger.info("Bot started successfully.")
+
     # Set "playing" status
     if diff.days < 2:
         print('Merry Christmas!')
@@ -209,12 +210,10 @@ async def serverlist(ctx):
     y = len(client.servers)
     print("Server list: " + x)
     if y > 40:
-        embed = discord.Embed(title="Currently active on " + str(y) + " servers:",
-                              description=config.err_mesg + "```json\nCan't display more than 40 servers!```", color=0xFFFFF)
+        embed = discord.Embed(title="Currently active on " + str(y) + " servers:", description=config.err_mesg + "```json\nCan't display more than 40 servers!```", color=0xFFFFF)
         return await client.say(embed=embed)
     elif y < 40:
-        embed = discord.Embed(title="Currently active on " + str(y) +
-                              " servers:", description="```json\n" + x + "```", color=0xFFFFF)
+        embed = discord.Embed(title="Currently active on " + str(y) + " servers:", description="```json\n" + x + "```", color=0xFFFFF)
         return await client.say(embed=embed)
 
 
@@ -223,8 +222,7 @@ async def getbans(ctx):
     """Lists all banned users on the current server."""
     x = await client.get_bans(ctx.message.server)
     x = '\n'.join([y.name for y in x])
-    embed = discord.Embed(title="List of Banned Members",
-                          description=x, colour=0xFFFFF)
+    embed = discord.Embed(title="List of Banned Members", description=x, colour=0xFFFFF)
     return await client.say(embed=embed)
 
 
@@ -240,6 +238,7 @@ async def info(ctx, user: discord.Member):
 
     except:
         await client.say(config.err_mesg)
+
 
 
 @client.command(pass_context=True)
@@ -263,29 +262,6 @@ async def insult(ctx):
     await client.say(ctx.message.author.mention + " " + random.choice(config.answers))  # Mention the user and say the insult
 
 
-@client.command(aliases=['ud'])
-async def urban(*msg):
-    """Searches on the Urban Dictionary."""
-    try:
-        word = ' '.join(msg)
-        api = "http://api.urbandictionary.com/v0/define"
-        # Send request to the API and grab info
-        response = requests.get(api, params=[("term", word)]).json()
-        embed = discord.Embed(description="No results found!", colour=0xFF0000)
-        if len(response["list"]) == 0:
-            return await client.say(embed=embed)
-        # Add results to the embed (list)
-        embed = discord.Embed(
-            title="Word", description=word, colour=embed.colour)
-        embed.add_field(name="Top definition:",
-                        value=response['list'][0]['definition'])
-        embed.add_field(name="Examples:", value=response['list'][0]["example"])
-        embed.set_footer(text="Tags: " + ', '.join(response['tags']))
-
-        await client.say(embed=embed)
-
-    except:
-        await client.say(config.err_mesg)
 
 
 @client.command(pass_context=True)
