@@ -1,5 +1,5 @@
 # BlazeBot
-A multipurpose Discord bot written in Python with the discord.py module. (Version 1.3)
+A multipurpose Discord bot written in Python with the [discord.py](https://github.com/Rapptz/discord.py) module. (Version 1.4)
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
