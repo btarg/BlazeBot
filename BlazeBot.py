@@ -262,6 +262,51 @@ async def insult(ctx):
     await client.say(ctx.message.author.mention + " " + random.choice(config.answers))  # Mention the user and say the insult
 
 
+@client.command(aliases=['ud'])
+async def urban(*msg):
+    """Searches on the Urban Dictionary."""
+    try:
+        word = ' '.join(msg)
+        api = "http://api.urbandictionary.com/v0/define"
+        # Send request to the Urban Dictionary API and grab info
+        response = requests.get(api, params=[("term", word)]).json()
+        embed = discord.Embed(description="No results found!", colour=0xFF0000)
+        if len(response["list"]) == 0:
+            return await client.say(embed=embed)
+        # Add results to the embed
+        embed = discord.Embed(title="Word", description=word, colour=embed.colour)
+        embed.add_field(name="Top definition:", value=response['list'][0]['definition'])
+        embed.add_field(name="Examples:", value=response['list'][0]["example"])
+        embed.set_footer(text="Tags: " + ', '.join(response['tags']))
+
+        await client.say(embed=embed)
+
+    except:
+        await client.say(config.err_mesg)
+
+
+@client.command(pass_context=True, aliases=['ytstats'])
+async def youtube(ctx, *, channelid):
+    """Gets statistics for a YouTube channel."""
+    try:
+        # Make requests to YouTube API and grab info
+        data = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + channelid + "&key=" + config.key).read()
+        subs = json.loads(data)["items"][0]["statistics"]["subscriberCount"]
+        views = json.loads(data)["items"][0]["statistics"]["viewCount"]
+        vids = json.loads(data)["items"][0]["statistics"]["videoCount"]
+
+        # Generate embed and say
+        embed=discord.Embed(color=0xff0000)
+        embed.add_field(name="Subscribers:", value="{:,d}".format(int(subs)), inline=False)
+        embed.add_field(name="Total views:", value="{:,d}".format(int(views)), inline=False)
+        embed.add_field(name="Total videos:", value="{:,d}".format(int(vids)), inline=False)
+        embed.set_thumbnail(url="https://s.ytimg.com/yts/mobile/img/apple-touch-icon-144x144-precomposed-vflopw1IA.png")
+        embed.set_footer(text="Powered by YouTube API")
+        await client.say(embed=embed)
+    except:
+        await client.say(config.err_mesg)
+
+
 
 
 @client.command(pass_context=True)
