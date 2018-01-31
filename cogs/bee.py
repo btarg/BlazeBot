@@ -1,5 +1,5 @@
 # Josh's commands
-# ya like jazzzz?????
+# ya like jazzzzz???
 
 import discord
 from discord.ext import commands
@@ -8,9 +8,9 @@ class bee():
     def __init__(self, client):
         self.client = client
 
-    @commands.command() #Print Bee Movie script from "beemovie.txt" on my dankus webshite
+    @commands.command() # Print the Bee Movie script from "beemovie.txt" on the Download Archive
     async def beemovie(self):
-        """teh best movieh"""
+        """teh best movieh evar"""
         await self.client.say("https://icrazyblaze.github.io/Download-archive/dl/beemovie.txt")
 
 
