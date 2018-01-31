@@ -2,7 +2,7 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
-#import traceback
+# import traceback
 import platform
 import sys
 import os
@@ -46,8 +46,8 @@ client = Bot(description=config.des, command_prefix=config.pref)
 # This message lets us know that the script is running correctly
 print("Connecting...")
 
-# Start bot and print status to console
 
+# Start bot and print status to console
 
 @client.event
 async def on_ready():
@@ -188,17 +188,19 @@ async def setgame(ctx, *args):
             setgame = ' '.join(args)
             await client.change_presence(game=discord.Game(name=setgame))
             await client.say(":ballot_box_with_check: Game set to: `" + setgame + "`")
+            print("Game set to: `" + setgame + "`")
         else:
             await client.say(config.err_mesg_permission)
     except:
         await client.say(config.err_mesg)
 
 
-@client.command(pass_context=True)
-async def servers(ctx):
+@client.command()
+async def servers():
     """Shows how many servers the bot is active on."""
     try:
         await client.say("Currently active on " + str(len(client.servers)) + " servers.")
+        print("Currently active on " + str(len(client.servers)) + " servers.")
     except:
         await client.say(config.err_mesg)
 
@@ -305,7 +307,6 @@ async def youtube(ctx, *, channelid):
         await client.say(embed=embed)
     except:
         await client.say(config.err_mesg)
-
 
 
 

@@ -1,15 +1,16 @@
 # BlazeBot
-A multipurpose Discord bot written in Python with the [discord.py](https://github.com/Rapptz/discord.py) module. (Version 1.4)
+A multipurpose Discord bot written in Python with the [discord.py](https://github.com/Rapptz/discord.py) module.
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![PyPI](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
+[![PyPI](https://img.shields.io/badge/BlazeBot%20version-1.4-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
 
 # Installing dependencies
 The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
 
-`python -m pip install requests`
+```python -m pip install requests```
 
-`python -m pip install discord`
+```python -m pip install discord```
 
 If these commands don't work, try using `python3.6` or `python3` instead of the regular command, or use `sudo` on Linux.
 
@@ -27,9 +28,9 @@ To run the script on Windows with [Git Bash](https://git-scm.com/downloads), del
 # Setting up and config
 BlazeBot comes with a `config.py` file. Here you will add your Discord App token, and add startup extensions. You can generate a token at https://discordapp.com/developers/applications/me.
 
-Find the string `Token here` in the config file and replace it with your token.
+Find the string `"token here"` in the config file and replace it with your token.
 
-In the config file, you can also customise insults, error messages, bot prefix, bot description and the file to log to.
+In the `config.py` file, you can also customise insults, error messages, bot prefix, bot description and the file you want the bot to log events to.
 
 
 # Creating an extension (cog)
