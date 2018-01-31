@@ -1,3 +1,3 @@
 #!/bin/bash
-#Launch BlazeBot - Linux only (Python 3.4/3.5)
+#Launch BlazeBot - Linux only (Older Python 3 versions)
 python3 BlazeBot.py

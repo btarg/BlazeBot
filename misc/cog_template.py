@@ -1,4 +1,5 @@
-#Discord.py extension (cog) template
+# Discord.py extension (cog) template
+
 import discord
 from discord.ext import commands
 
@@ -6,9 +7,9 @@ class test():
     def __init__(self, client):
         self.client = client
 
-    @commands.command() #This is how a command should look in cog format.
-    async def test(self):
-        """TEST COMMAND 2"""
+    @commands.command() # This is how a command should look in cog format.
+    async def test(self): # Always invoke "self"!
+        """Description goes here"""
         await self.client.say("This is a test message")
 
 
