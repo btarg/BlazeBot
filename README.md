@@ -3,7 +3,7 @@ A multipurpose Discord bot written in Python with the [discord.py](https://githu
 
 [![Discord.py](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![Python](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
-[![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.4-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
+[![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.5-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
 
 # Installing dependencies
 The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
@@ -68,6 +68,9 @@ Use the [Discord Permissions Calculator](https://discordapi.com/permissions.html
 
 If you want to invite your bot to other people's servers, make sure to tick "Public bot" on the Apps page.
 
+# Speech Recognition
+**Speech-to-Discord** lets you type a command and talk to BlazeBot, and it will send your message to the same channel where you typed the command. By default, this cog is disabled. To enable it, add it to `startup_extensions` in the config file. You will need a microphone so that the program can recognise your voice (duuhh...), and it works best on Windows 10.
+
 # Tips
 Make sure to always update BlazeBot. You can create [GitHub Webhooks for Discord](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to get notified whenever a repo is updated.
 
@@ -76,6 +79,8 @@ When you do this, always keep a backup! It's also useful to write down your toke
 To read this properly offline, [Atom](https://atom.io) has a built-in Markdown Previewer that you can open by hitting **CTRL+SHIFT+M** on a PC or **CMD+SHIFT+M** on a Mac.
 
 # See Also
+Here are some useful GitHub repositories related to BlazeBot:
+
 https://github.com/Cog-Creators/Red-DiscordBot
 
 https://github.com/Rapptz/discord.py
