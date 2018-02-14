@@ -3,6 +3,7 @@
 import discord
 from discord.ext import commands
 import config
+
 # Import Speech Recognition Library
 import speech_recognition as sr
 
@@ -20,41 +21,54 @@ class Speech():
     @commands.command(pass_context = True)
     async def speech(self, ctx):
         """Post to Discord via voice"""
-        r = sr.Recognizer()
-        with sr.Microphone() as source:
-              # Print and say startup message
-              print(startup_mesg)
-              speak.Speak(startup_mesg)
-              # Listen to microphone
-              audio = r.listen(source)
+        try:
+            if ctx.message.author.server_permissions.administrator:
+                r = sr.Recognizer()
+                with sr.Microphone() as source:
+                      # Print and say startup message
+                      print(startup_mesg)
+                      speak.Speak(startup_mesg)
+                      # Listen to microphone
+                      audio = r.listen(source)
 
-        # Store the voice input in a variable
-        recognised = r.recognize_google(audio)
+                # Store the voice input in a variable
+                recognised = r.recognize_google(audio)
 
-        output = "Now posting your message to Discord: " + recognised
-        print(output)
-        speak.Speak(output)
-        await self.client.say(recognised)
+                output = "Now posting your message to Discord: " + recognised
+                print(output)
+                speak.Speak(output)
+                await self.client.say(recognised)
+            else:
+                await self.client.say(config.err_mesg_permission)
+        except:
+            await self.client.say(config.err_mesg)
 
 
     @commands.command(pass_context = True)
     async def speechtts(self, ctx):
         """Post to Discord via voice (TTS)"""
-        r = sr.Recognizer()
-        with sr.Microphone() as source:
-              # Print and say startup message
-              print(startup_mesg)
-              speak.Speak(startup_mesg)
-              # Listen to microphone
-              audio = r.listen(source)
+        try:
+            if ctx.message.author.server_permissions.administrator:
+                r = sr.Recognizer()
+                with sr.Microphone() as source:
+                      # Print and say startup message
+                      print(startup_mesg)
+                      speak.Speak(startup_mesg)
+                      # Listen to microphone
+                      audio = r.listen(source)
 
-        # Store the voice input in a variable
-        recognised = r.recognize_google(audio)
+                # Store the voice input in a variable
+                recognised = r.recognize_google(audio)
 
-        output = "Now posting your message to Discord with TTS enabled: " + recognised
-        print(output)
-        speak.Speak(output)
-        await self.client.say(recognised, tts=True)
+                output = "Now posting your message to Discord with TTS enabled: " + recognised
+                print(output)
+                speak.Speak(output)
+                await self.client.say(recognised, tts=True)
+            else:
+                await self.client.say(config.err_mesg_permission)
+        except:
+            await self.client.say(config.err_mesg)
+
 
 
 
