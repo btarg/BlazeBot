@@ -23,6 +23,8 @@
 *.py3 		text
 *.pyw 		text
 *.pyx  		text
+*.bat  		text
+*.sh  		text
 
 *.p 		  binary
 *.pyc 		binary
