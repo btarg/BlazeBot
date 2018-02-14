@@ -1,4 +1,4 @@
-# Commands for The Crazi Rally
+# Commands for The Crazi Rally (2018)
 
 import discord
 from discord.ext import commands
@@ -22,6 +22,11 @@ class The_Crazi_Rally():
     async def harvster(self, ctx):  # Harvey's command
         """Harvey's command"""
         await self.client.say("**Harvey is my hero!**")
+
+    @commands.command(pass_context=True)
+    async def sharkira(self, ctx):  # Harvey's command
+        """SHARK-IRA SHARK-IRA"""
+        await self.client.say(ctx.message.author.mention + " https://youtu.be/fdfUd9Mc__g")
 
 
 def setup(client):

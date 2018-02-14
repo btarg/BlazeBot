@@ -2,7 +2,7 @@
 
 import discord
 from discord.ext import commands
-
+import config
 
 class usb():
     def __init__(self, client):

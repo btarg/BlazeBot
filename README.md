@@ -74,3 +74,8 @@ Make sure to always update BlazeBot. You can create [GitHub Webhooks for Discord
 When you do this, always keep a backup! It's also useful to write down your token, but **NEVER** give this to anyone you don't trust. Don't worry though - you can generate a new token whenever you want on the Apps page.
 
 To read this properly offline, [Atom](https://atom.io) has a built-in Markdown Previewer that you can open by hitting **CTRL+SHIFT+M** on a PC or **CMD+SHIFT+M** on a Mac.
+
+# See Also
+https://github.com/Cog-Creators/Red-DiscordBot
+
+https://github.com/Rapptz/discord.py
