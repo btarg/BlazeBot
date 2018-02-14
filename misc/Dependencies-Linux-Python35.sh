@@ -3,3 +3,4 @@
 sudo python3 -m pip install Discord
 sudo python3 -m pip install requests
 sudo python3 -m pip install pyfiglet
+sudo python3 -m pip install SpeechRecognition
