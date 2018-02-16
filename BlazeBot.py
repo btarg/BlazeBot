@@ -205,6 +205,16 @@ async def servers():
         await client.say(config.err_mesg)
 
 
+@client.command()
+async def botplatform():
+    """Shows what OS the bot is running on."""
+    try:
+        await client.say("The bot is currently running on: ```" + str(platform.platform()) + "```")
+    except:
+        await client.say(config.err_mesg)
+        
+
+
 @client.command(pass_context=True)
 async def serverlist(ctx):
     """List the servers that the bot is active on."""
