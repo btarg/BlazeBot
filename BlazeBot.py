@@ -287,12 +287,37 @@ async def urban(*msg):
         await client.say(config.err_mesg)
 
 
-@client.command(pass_context=True, aliases=['ytstats'])
-async def youtube(ctx, *, channelid):
-    """Gets statistics for a YouTube channel."""
+@client.command(pass_context=True, aliases=['ytid'])
+async def youtubeid(ctx, *, channelid):
+    """Gets statistics for a YouTube channel using ID."""
     try:
         # Make requests to YouTube API and grab info
         data = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + channelid + "&key=" + config.key).read()
+        logger.info("Making request to " + "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + channelid + "&key=" + config.key)
+        subs = json.loads(data)["items"][0]["statistics"]["subscriberCount"]
+        views = json.loads(data)["items"][0]["statistics"]["viewCount"]
+        vids = json.loads(data)["items"][0]["statistics"]["videoCount"]
+
+        # Generate embed and say
+        embed=discord.Embed(color=0xff0000)
+        embed.add_field(name="Subscribers:", value="{:,d}".format(int(subs)), inline=False)
+        embed.add_field(name="Total views:", value="{:,d}".format(int(views)), inline=False)
+        embed.add_field(name="Total videos:", value="{:,d}".format(int(vids)), inline=False)
+        embed.set_thumbnail(url="https://s.ytimg.com/yts/mobile/img/apple-touch-icon-144x144-precomposed-vflopw1IA.png")
+        embed.set_footer(text="Powered by YouTube API")
+        await client.say(embed=embed)
+    except:
+        await client.say(config.err_mesg)
+
+
+
+@client.command(pass_context=True, aliases=['ytstats'])
+async def youtube(ctx, *, name):
+    """Gets statistics for a YouTube channel."""
+    try:
+        # Make requests to YouTube API and grab info
+        data = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="+name+"&key="+config.key).read()
+        logger.info("Making request to " + "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="+name+"&key="+config.key)
         subs = json.loads(data)["items"][0]["statistics"]["subscriberCount"]
         views = json.loads(data)["items"][0]["statistics"]["viewCount"]
         vids = json.loads(data)["items"][0]["statistics"]["videoCount"]
@@ -318,9 +343,11 @@ async def load():
             try:
                 client.load_extension(extension)
                 await client.say("Loaded extension: '" + extension + "'")
+                logger.info("Loaded extension '" + extension + "'")
             except Exception as e:
                 exc = '{}: {}'.format(type(e).__name__, e)
                 print('Failed to load extension {}\n{}'.format(extension, exc))
+                logger.info('Failed to load extension {}\n{}'.format(extension, exc))
 
 
 @client.command()
@@ -374,9 +401,11 @@ if __name__ == "__main__":  # Load startup extensions, specified in config.py
         try:
             client.load_extension(extension)
             print("Loaded extension '" + extension + "'")
+            logger.info("Loaded extension '" + extension + "'")
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
+            logger.info('Failed to load extension {}\n{}'.format(extension, exc))
 
 
 # Read client token from "config.py" (which should be in the same directory as this file)
