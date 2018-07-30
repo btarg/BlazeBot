@@ -2,7 +2,7 @@
 A multipurpose Discord bot written in Python with the [discord.py](https://github.com/Rapptz/discord.py) module.
 
 [![Discord.py](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
-[![Python](https://img.shields.io/badge/Python-3.5%2C%203.6-blue.svg)](https://python.org/)
+[![Python](https://img.shields.io/badge/Python-3.5%2C%203.6%2C%203.7-blue.svg)](https://python.org/)
 [![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.5.5-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
 
 # Installing dependencies
