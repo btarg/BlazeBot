@@ -3,7 +3,7 @@ A multipurpose Discord bot written in Python with the [discord.py](https://githu
 
 [![Discord.py](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![Python](https://img.shields.io/badge/Python-3.5%2C%203.6%2C%203.7-blue.svg)](https://python.org/)
-[![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.5.6-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
+[![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.6-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
 
 # Installing dependencies
 The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
