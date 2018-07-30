@@ -19,6 +19,7 @@ python -m pip install discord
 **However, to easily setup BlazeBot and change tokens and API keys at any time, you should use the `Setup-Linux.sh` script, or if you're on Windows, `Setup-Windows.bat` script to launch the setup.**
 
 If these commands don't work, try using `python3.6` or `python3` instead of the regular command, or use `sudo` on Linux. `py` will also work for Python 3.7.
+(BlazeBot.py is currently broken under Python 3.7, but the setup script is working.)
 
 You can also use the scripts found in the `misc` folder that will do this for you. Remember to run the `Python35` version if you're using Python 3.5! However, these are deprecated, and you should use the new `setup.py` script to set up the bot.
 
