@@ -2,7 +2,6 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
-# import traceback
 import platform
 import sys
 import os
@@ -27,6 +26,7 @@ if not os.path.isfile("config.py"):
 
 else:
     import config  # config.py is required to run; found in the same directory.
+    import setup # setup.py is used to get the version number
 ##################################################################################
 
 
@@ -58,8 +58,8 @@ async def on_ready():
     f.close()
     print("Discord.py API version:", discord.__version__)
     print("Python version:", platform.python_version())
-    print("Running on:", platform.system(),
-          platform.release(), "(" + os.name + ")")
+    print("Running on:", platform.system(), platform.release(), "(" + os.name + ")")
+    print("BlazeBot version:", setup.ver())
     print("Name : {}".format(client.user.name))
     print("ID : {}".format(client.user.id))
     print("Currently active on " + str(len(client.servers)) + " servers.")
@@ -212,7 +212,7 @@ async def botplatform():
         await client.say("The bot is currently running on: ```" + str(platform.platform()) + "```")
     except:
         await client.say(config.err_mesg)
-        
+
 
 
 @client.command(pass_context=True)

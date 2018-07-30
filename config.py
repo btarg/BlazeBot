@@ -1,10 +1,10 @@
 # BlazeBot configuration file (required to run)
 
 # Discord App token
-bbtoken = "token here" #REMOVE TOKEN BEFORE SYNC!! -Blaze
+bbtoken = "MzQ2MzAzMDA3ODY2MjI0NjQw.DdSsdQ.bsZ33SyeL0UBFSJsIfmJhKyICj8" #REMOVE TOKEN BEFORE SYNC!! -Blaze
 
 # YouTube API key (https://console.developers.google.com/apis/credentials/key)
-key = "key here" #REMOVE KEY BEFORE SYNC!! -Blaze
+key = "AIzaSyDXnFGOjD4FzdFSv3zWvGRNDRAxV5AgJ4U" #REMOVE KEY BEFORE SYNC!! -Blaze
 
 
 # This specifies what extensions to load when the bot starts up

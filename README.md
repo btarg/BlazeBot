@@ -3,7 +3,7 @@ A multipurpose Discord bot written in Python with the [discord.py](https://githu
 
 [![Discord.py](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
 [![Python](https://img.shields.io/badge/Python-3.5%2C%203.6%2C%203.7-blue.svg)](https://python.org/)
-[![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.5.5-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
+[![BlazeBot](https://img.shields.io/badge/BlazeBot%20version-1.5.6-brightgreen.svg)](https://icrazyblaze.github.io/BlazeBot)
 
 # Installing dependencies
 The following packages are required to run (as well as [Python](https://python.org) 3.5 or over):
@@ -16,9 +16,9 @@ python -m pip install requests
 python -m pip install discord
 ```
 
-However, to easily setup BlazeBot and change tokens and API keys at any time, you should use the `Setup-Linux.sh` script, or if you're on Windows, `Setup-Windows.bat` script to launch the setup.
+**However, to easily setup BlazeBot and change tokens and API keys at any time, you should use the `Setup-Linux.sh` script, or if you're on Windows, `Setup-Windows.bat` script to launch the setup.**
 
-If these commands don't work, try using `python3.6` or `python3` instead of the regular command, or use `sudo` on Linux.
+If these commands don't work, try using `python3.6` or `python3` instead of the regular command, or use `sudo` on Linux. `py` will also work for Python 3.7.
 
 You can also use the scripts found in the `misc` folder that will do this for you. Remember to run the `Python35` version if you're using Python 3.5! However, these are deprecated, and you should use the new `setup.py` script to set up the bot.
 
