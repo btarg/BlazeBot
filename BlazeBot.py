@@ -26,7 +26,7 @@ if not os.path.isfile("config.py"):
 
 else:
     import config  # config.py is required to run; found in the same directory.
-    import from setup import ver # setup.py is used to get the version number
+    from setup import ver # setup.py is used to get the version number
 ##################################################################################
 
 
