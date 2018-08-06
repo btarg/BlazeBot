@@ -26,7 +26,7 @@ if not os.path.isfile("config.py"):
 
 else:
     import config  # config.py is required to run; found in the same directory.
-    import setup # setup.py is used to get the version number
+    import from setup import ver # setup.py is used to get the version number
 ##################################################################################
 
 
@@ -59,7 +59,7 @@ async def on_ready():
     print("Discord.py API version:", discord.__version__)
     print("Python version:", platform.python_version())
     print("Running on:", platform.system(), platform.release(), "(" + os.name + ")")
-    print("BlazeBot version:", setup.ver())
+    print("BlazeBot version:", ver())
     print("Name : {}".format(client.user.name))
     print("ID : {}".format(client.user.id))
     print("Currently active on " + str(len(client.servers)) + " servers.")
