@@ -1,0 +1,12 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+cache: C:\Python36-x64
+build_script:
+- sh: >-
+    sudo C:\Python36-x64\Scripts\pip install discord
+
+    sudo C:\Python36-x64\Scripts\pip install requests
+
+    sudo C:\Python36-x64\Scripts\pip install pyfiglet
+
+    sudo python3 BlazeBot.py
