@@ -260,21 +260,23 @@ async def insult(ctx):
 
 @client.command(aliases=['ud'])
 async def urban(ctx, *msg):
-    """Searches on the Urban Dictionary."""
-    word = ' '.join(msg)
-    api = "http://api.urbandictionary.com/v0/define"
-    # Send request to the Urban Dictionary API and grab info
-    response = requests.get(api, params=[("term", word)]).json()
-    embed = discord.Embed(description="No results found!", colour=0xFF0000)
-    if len(response["list"]) == 0:
-        return await ctx.send(embed=embed)
-    # Add results to the embed
-    embed = discord.Embed(title="Word", description=word, colour=embed.colour)
-    embed.add_field(name="Top definition:", value=response['list'][0]['definition'])
-    embed.add_field(name="Examples:", value=response['list'][0]["example"])
+    try:
+        """Searches on the Urban Dictionary."""
+        word = ' '.join(msg)
+        api = "http://api.urbandictionary.com/v0/define"
+        # Send request to the Urban Dictionary API and grab info
+        response = requests.get(api, params=[("term", word)]).json()
+        embed = discord.Embed(description="No results found!", colour=0xFF0000)
+        if len(response["list"]) == 0:
+            return await ctx.send(embed=embed)
+        # Add results to the embed
+        embed = discord.Embed(title="Word", description=word, colour=embed.colour)
+        embed.add_field(name="Top definition:", value=response['list'][0]['definition'])
+        embed.add_field(name="Examples:", value=response['list'][0]["example"])
 
-    await ctx.send(embed=embed)
-
+        await ctx.send(embed=embed)
+    except:
+        await ctx.send(config.err_mesg_generic)
 
 
 @client.command(aliases=['ytid'])
