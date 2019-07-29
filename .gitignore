@@ -128,4 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# BlazeBot
+config.py
+
 # End of https://www.gitignore.io/api/python
