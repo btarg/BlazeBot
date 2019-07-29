@@ -193,16 +193,6 @@ async def setgame(ctx, *args):
 
 
 @client.command()
-async def servers(ctx):
-    """Shows how many servers the bot is active on."""
-    try:
-        await ctx.send("Currently active on " + str(len(client.guilds)) + " servers.")
-        print("Currently active on " + str(len(client.guilds)) + " servers.")
-    except:
-        await ctx.send(config.err_mesg_generic)
-
-
-@client.command()
 async def botplatform(ctx):
     """Shows what OS the bot is running on."""
     try:
