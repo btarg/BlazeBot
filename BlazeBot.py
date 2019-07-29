@@ -69,7 +69,7 @@ async def on_ready():
     else:
         game = discord.Game("BlazeBot.py | {0}help | Python version: {1} | Discord API version: {2} | Running on: {3} {4} ({5})".format(config.pref, platform.python_version(), discord.__version__, platform.platform, platform.release(), os.name))
         
-    await client.change_presence(status=discord.Status.online, activity=discord.Game(game))
+    await client.change_presence(status=discord.Status.online, activity=game)
 
 
 # Default BlazeBot commands
