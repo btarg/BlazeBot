@@ -75,18 +75,15 @@ async def on_ready():
 # Default BlazeBot commands
 
 @client.command(aliases=['remove', 'delete'])
-async def purge(ctx, number):
+async def purge(ctx, number: int):
     """Bulk-deletes messages from the channel."""
     try:
         if ctx.message.author.guild_permissions.administrator:
-            mgs = []  # Empty list to put all the messages in the log
-            # Converting the amount of messages to delete to an integer
-            number = int(number)
-            async for x in client.logs_from(ctx.message.channel, limit=number):
-                mgs.append(x)
-            await client.delete_messages(mgs)
-            print("Purged {} messages.".format(number))
-            logger.info("Purged {} messages.".format(number))
+        
+            deleted = await ctx.channel.purge(limit=number)
+            print('Deleted {} message(s)'.format(len(deleted)))
+            logger.info('Deleted {} message(s)'.format(len(deleted)))
+
         else:
             await ctx.send(config.err_mesg_permission)
     except:
