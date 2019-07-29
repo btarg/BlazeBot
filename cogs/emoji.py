@@ -3,12 +3,12 @@ import discord
 from discord.ext import commands
 
 
-class Emoji():
+class Emoji(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     # Get emotes from all servers
-    @commands.command(pass_context=True, aliases=["Emotes", "emojis"])
+    @commands.command(aliases=["Emotes", "emojis"])
     async def emotes(self, ctx):
         """Displays all emotes avaiable on a Server."""
         embed = discord.Embed(
@@ -19,8 +19,7 @@ class Emoji():
             output2 = ("```" + str(output) + "```")
             # Add info to list (embed)
             embed.add_field(name=ej.name, value=output2, inline=False)
-        await self.client.say(embed=embed)
-        # await self.client.say(output2)
+        await self.ctx.send(embed=embed)
 
 
 def setup(client):

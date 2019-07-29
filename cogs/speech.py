@@ -14,11 +14,12 @@ speak = wincl.Dispatch("SAPI.SpVoice")
 # Message displayed when command is run (It will only say this message out loud on Windows 10)
 startup_mesg = "What would you like to post to Discord?"
 
-class Speech():
+
+class Speech(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(pass_context = True)
+    @commands.command(pass_context=True)
     async def speech(self, ctx):
         """Post to Discord via voice"""
         try:
@@ -37,14 +38,13 @@ class Speech():
                 output = "Now posting your message to Discord: " + recognised
                 print(output)
                 speak.Speak(output)
-                await self.client.say(recognised)
+                await self.ctx.send(recognised)
             else:
-                await self.client.say(config.err_mesg_permission)
+                await self.ctx.send(config.err_mesg_permission)
         except:
-            await self.client.say(config.err_mesg)
+            await self.ctx.send(config.err_mesg)
 
-
-    @commands.command(pass_context = True)
+    @commands.command(pass_context=True)
     async def speechtts(self, ctx):
         """Post to Discord via voice (TTS)"""
         try:
@@ -63,13 +63,11 @@ class Speech():
                 output = "Now posting your message to Discord with TTS enabled: " + recognised
                 print(output)
                 speak.Speak(output)
-                await self.client.say(recognised, tts=True)
+                await self.ctx.send(recognised, tts=True)
             else:
-                await self.client.say(config.err_mesg_permission)
+                await self.ctx.send(config.err_mesg_permission)
         except:
-            await self.client.say(config.err_mesg)
-
-
+            await self.ctx.send(config.err_mesg)
 
 
 def setup(client):

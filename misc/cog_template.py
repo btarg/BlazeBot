@@ -3,14 +3,14 @@
 import discord
 from discord.ext import commands
 
-class test():
+class test(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     @commands.command() # This is how a command should look in cog format.
-    async def test(self): # Always invoke "self"!
+    async def test(self, ctx): # Always invoke "self"!
         """Description goes here"""
-        await self.client.say("This is a test message")
+        await ctx.send("This is a test message")
 
 
 def setup(client):

@@ -4,16 +4,16 @@ import discord
 from discord.ext import commands
 import config
 
-class invite():
+class invite(commands.Cog):
     def __init__(self, client):
         self.client = client
 
 		
-		@commands.command(pass_context=True, aliases=[invitelink, serverlink, link])
+		@commands.command(aliases=[invitelink, serverlink, link])
 		async def invite(self, ctx):
 			invitelinknew = await self.client.create_invite(destination = ctx.message.channel, xkcd = True, max_uses = 100)
 			print(invitelinknew)
-			await self.client.say(invitelinknew)
+			await self.ctx.send(invitelinknew)
 
 
 def setup(client):
