@@ -17,7 +17,7 @@ def main():
 	print("BlazeBot " + ver + " setup application")
 	print("https://icrazyblaze.github.io/BlazeBot")
 	print("========================================")
-	print("\nWelcome to the BlazeBot setup! Make sure you have read the README carefully, so you know what you're doing. Remember, you will have to manually edit the 'config.py' file to change the bot's prefix and description.\n")
+	print("\nWelcome to the BlazeBot setup! Make sure you have read the README carefully, so you know what you're doing.\nRemember, you will have to manually edit the 'config.py' file to change the bot's prefix and description.\n")
 
 	# Read config file and add to a variable
 	file = open('config.py', 'r')
