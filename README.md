@@ -1,4 +1,4 @@
-# BlazeBot 2
+# BlazeBot 2 (beta)
 A multipurpose, semi-modular Discord bot written in Python with the new [discord.py](https://github.com/Rapptz/discord.py) module.
 
 [![Discord.py](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)

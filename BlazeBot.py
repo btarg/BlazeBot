@@ -65,11 +65,11 @@ async def on_ready():
     # Set "playing" status
     if diff.days < 2:
         print("Merry Christmas!")
-        game = discord.Game("Merry Christmas! <3")
+        game = "Merry Christmas! <3"
     else:
-        game = discord.Game("BlazeBot.py | {0}help | Python version: {1} | Discord API version: {2} | Running on: {3} {4} ({5})".format(config.pref, platform.python_version(), discord.__version__, platform.platform, platform.release(), os.name))
+        game = "BlazeBot.py | {0}help | Python version: {1} | Discord API version: {2} | Running on: {3} {4} ({5})".format(config.pref, platform.python_version(), discord.__version__, platform.platform, platform.release(), os.name)
         
-    await client.change_presence(status=discord.Status.online, activity=game)
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(game))
 
 
 # Default BlazeBot commands
@@ -206,34 +206,42 @@ async def serverlist(ctx):
     y = len(client.guilds)
     print("Server list: " + x)
     if y > 40:
-        embed = discord.Embed(title="Currently active on " + str(y) + " servers:", description=config.err_mesg_generic + "```json\nCan't display more than 40 servers!```", color=0xFFFFF)
+        embed = discord.Embed(title="Currently active on " + str(y) + " servers:", description=config.err_mesg_generic + "```json\nCan't display more than 40 servers!```", colour=0xFFFFF)
         return await ctx.send(embed=embed)
     elif y < 40:
-        embed = discord.Embed(title="Currently active on " + str(y) + " servers:", description="```json\n" + x + "```", color=0xFFFFF)
+        embed = discord.Embed(title="Currently active on " + str(y) + " servers:", description="```json\n" + x + "```", colour=0xFFFFF)
         return await ctx.send(embed=embed)
 
 
 @client.command()
 async def getbans(ctx):
-    """Lists all banned users on the current server."""
-    x = await client.get_bans(ctx.message.guild)
-    x = '\n'.join([y.name for y in x])
-    embed = discord.Embed(title="List of Banned Members", description=x, colour=0xFFFFF)
-    return await ctx.send(embed=embed)
+	"""Lists all banned users on the current server."""
+	
+	if ctx.message.author.guild_permissions.ban_members:
+		x = await ctx.message.guild.bans()
+		x = '\n'.join([str(y.user) for y in x])
+		embed = discord.Embed(title="List of Banned Members", description=x, colour=0xFFFFF)
+		return await ctx.send(embed=embed)
+	else:
+		await ctx.send(config.err_mesg_permission)
+	
+
 
 
 @client.command(aliases=['user'])
 async def info(ctx, user: discord.Member):
-    """Gets info on a member, such as their ID."""
-    try:
-        await ctx.send("`The user's name is: {}`".format(user.name))
-        await ctx.send("`The user's ID is: {}`".format(user.id))
-        await ctx.send("`The user's status is: {}`".format(user.status))
-        await ctx.send("`The user's highest role is: {}`".format(user.top_role))
-        await ctx.send("`The user joined at: {}`".format(user.joined_at))
-
-    except:
-        await ctx.send(config.err_mesg_generic)
+	"""Gets info on a member, such as their ID."""
+	try:
+		embed = discord.Embed(title="User profile: " + user.name, colour=user.colour)
+		embed.add_field(name="Name:", value=user.name)
+		embed.add_field(name="ID:", value=user.id)
+		embed.add_field(name="Status:", value=user.status)
+		embed.add_field(name="Highest role:", value=user.top_role)
+		embed.add_field(name="Joined:", value=user.joined_at)
+		embed.set_thumbnail(url=user.avatar_url)
+		await ctx.send(embed=embed)
+	except:
+		await ctx.send(config.err_mesg_generic)
 
 
 
@@ -260,10 +268,11 @@ async def insult(ctx):
 
 @client.command(aliases=['ud'])
 async def urban(ctx, *msg):
+    """Searches on the Urban Dictionary."""
     try:
-        """Searches on the Urban Dictionary."""
         word = ' '.join(msg)
         api = "http://api.urbandictionary.com/v0/define"
+		logger.info("Making request to " + api)
         # Send request to the Urban Dictionary API and grab info
         response = requests.get(api, params=[("term", word)]).json()
         embed = discord.Embed(description="No results found!", colour=0xFF0000)
@@ -272,8 +281,7 @@ async def urban(ctx, *msg):
         # Add results to the embed
         embed = discord.Embed(title="Word", description=word, colour=embed.colour)
         embed.add_field(name="Top definition:", value=response['list'][0]['definition'])
-        embed.add_field(name="Examples:", value=response['list'][0]["example"])
-
+        embed.add_field(name="Examples:", value=response['list'][0]['example'])
         await ctx.send(embed=embed)
     except:
         await ctx.send(config.err_mesg_generic)
@@ -291,7 +299,7 @@ async def youtubeid(ctx, *, channelid):
         vids = json.loads(data)["items"][0]["statistics"]["videoCount"]
 
         # Generate embed and say
-        embed=discord.Embed(color=0xff0000)
+        embed=discord.Embed(colour=0xff0000)
         embed.add_field(name="Subscribers:", value="{:,d}".format(int(subs)), inline=False)
         embed.add_field(name="Total views:", value="{:,d}".format(int(views)), inline=False)
         embed.add_field(name="Total videos:", value="{:,d}".format(int(vids)), inline=False)
@@ -315,7 +323,7 @@ async def youtube(ctx, *, name):
         vids = json.loads(data)["items"][0]["statistics"]["videoCount"]
 
         # Generate embed and say
-        embed=discord.Embed(color=0xff0000)
+        embed=discord.Embed(colour=0xff0000)
         embed.add_field(name="Subscribers:", value="{:,d}".format(int(subs)), inline=False)
         embed.add_field(name="Total views:", value="{:,d}".format(int(views)), inline=False)
         embed.add_field(name="Total videos:", value="{:,d}".format(int(vids)), inline=False)
@@ -337,28 +345,17 @@ async def load(ctx):
                 print("Loaded extension '{0}'".format(extension))
                 logger.info("Loaded extension '{0}'".format(extension))
             except Exception as e:
-                exc = '{}: {}'.format(type(e).__name__, e)
-                print('Failed to load extension {}\nError: {}'.format(extension, exc))
-                logger.info('Failed to load extension {}\nError: {}'.format(extension, exc))
+                exc = '{0}: {1}'.format(type(e).__name__, e)
+                print('Failed to load extension {0}\nError: {1}'.format(extension, exc))
+                logger.info('Failed to load extension {0}\nError: {1}'.format(extension, exc))
 
 
 @client.command()
 async def unload(ctx, extension_name: str):
     """Unloads an extension."""
     client.unload_extension(extension_name)
-    await ctx.send("{} unloaded.".format(extension_name))
+    await ctx.send("{0} unloaded.".format(extension_name))
 
-
-@client.command(aliases=['cls'])
-async def clear(ctx):
-    """Clear the console from Discord"""
-    if ctx.message.author.guild_permissions.administrator:
-        await ctx.send(":ballot_box_with_check: **Console cleared!**")
-        # checks if the script running on Windows or Unix
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("== Console cleared! ==\n")
-    else:
-        await ctx.send(err_mesg_permission)
 
 
 # Christmas countdown!
@@ -368,7 +365,7 @@ async def christmas(ctx):
     await ctx.send("**{0}** day(s) left until Christmas day! :christmas_tree:".format(str(diff.days)))  # Convert the 'diff' integer into a string and say the message
 
 
-@client.command(aliases=['gh', 'code'])
+@client.command(aliases=['gh', 'code', 'website'])
 async def github(ctx):
     """Gives you a link to the GitHub website."""
     await ctx.send("**GitHub:** https://icrazyblaze.github.io/BlazeBot/")
@@ -394,5 +391,6 @@ if __name__ == "__main__":  # Load startup extensions, specified in config.py
 
 
 if __name__ == "__main__":
+
     # Read client token from "config.py" (which should be in the same directory as this file)
     client.run(config.bbtoken)

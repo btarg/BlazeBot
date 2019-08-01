@@ -38,11 +38,11 @@ class Speech(commands.Cog):
                 output = "Now posting your message to Discord: " + recognised
                 print(output)
                 speak.Speak(output)
-                await self.ctx.send(recognised)
+                await ctx.send(recognised)
             else:
-                await self.ctx.send(config.err_mesg_permission)
+                await ctx.send(config.err_mesg_permission)
         except:
-            await self.ctx.send(config.err_mesg)
+            await ctx.send(config.err_mesg)
 
     @commands.command(pass_context=True)
     async def speechtts(self, ctx):
@@ -63,11 +63,11 @@ class Speech(commands.Cog):
                 output = "Now posting your message to Discord with TTS enabled: " + recognised
                 print(output)
                 speak.Speak(output)
-                await self.ctx.send(recognised, tts=True)
+                await ctx.send(recognised, tts=True)
             else:
-                await self.ctx.send(config.err_mesg_permission)
+                await ctx.send(config.err_mesg_permission)
         except:
-            await self.ctx.send(config.err_mesg)
+            await ctx.send(config.err_mesg)
 
 
 def setup(client):

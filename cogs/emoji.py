@@ -1,4 +1,5 @@
 # Discord Emoji Info extension for BlazeBot
+
 import discord
 from discord.ext import commands
 
@@ -8,18 +9,18 @@ class Emoji(commands.Cog):
         self.client = client
 
     # Get emotes from all servers
-    @commands.command(aliases=["Emotes", "emojis"])
+    @commands.command(aliases=["emoji", "emojis"])
     async def emotes(self, ctx):
-        """Displays all emotes avaiable on a Server."""
-        embed = discord.Embed(
-            title="Emojis", description="Here are all the emojis available on the servers with BlazeBot:", color=0x00ff00)  # setup embed
-        for ej in self.client.get_all_emojis():
-            output = ej.name, ej.id, ej.managed, ej.server.name
+        """Displays all emotes avaiable on a server."""
+        embed = discord.Embed(title="Emojis", description="Here are all the emojis available on the servers with BlazeBot:", color=0x00ff00)  # setup embed
+		
+        for ej in self.client.emojis:
+            output = ej.name, ej.id, ej.managed, ej.guild.name
             # Here we need 2 strings to add the backtick styling and avoid "too many arguments" errors
-            output2 = ("```" + str(output) + "```")
+            output2 = ("```{}```".format(str(output)))
             # Add info to list (embed)
             embed.add_field(name=ej.name, value=output2, inline=False)
-        await self.ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
 
 def setup(client):
