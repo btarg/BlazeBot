@@ -42,7 +42,7 @@ Inside the `misc` folder, you will find templates for commands and cogs.
 
 Replace `test` with the command category's name. Also, make sure the extension's filename the same as this, to avoid confusion.
 
-You can refer to [this documentation](https://twentysix26.github.io/Red-Docs/red_guide_make_cog/) for how to create a cog, but make sure to replace all instances of `bot` with `client`, as this is what BlazeBot uses.
+You can refer to [this documentation](https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html?highlight=cogs) for how to create a cog, but make sure to replace all instances of `bot` with `client`, as this is what BlazeBot uses.
 
 
 # Loading/Unloading an extension (cog)
